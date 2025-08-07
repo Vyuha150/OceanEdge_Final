@@ -1,0 +1,84 @@
+.wave-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+.box {
+  height: 130px;  /* Reduced from 280px to medium size */
+  width: 130px;   /* Reduced from 280px to medium size */
+  position: relative;
+  background: black;
+  border-radius: 100%;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(205, 117, 74, 0.5); /* Added glow effect with the theme color */
+}
+
+.box .percent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px; /* Reduced from 64px */
+}
+
+.box .water {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  transform: translate(0, 100%);
+  background: #cd754a; /* Changed from #4D6DE3 to #cd754a */
+  transition: all 0.3s;
+}
+
+.box .water_wave {
+  width: 200%;
+  position: absolute;
+  bottom: 100%;
+}
+
+.box .water_wave_back {
+  right: 0;
+  fill: #e8b396; /* Lighter shade of #cd754a */
+  animation: wave-back 1s infinite linear;
+}
+
+.box .water_wave_front {
+  left: 0;
+  fill: #cd754a; /* Main theme color */
+  margin-bottom: -1px;
+  animation: wave-front 0.5s infinite linear;
+}
+
+@keyframes wave-front {
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes wave-back {
+  100% {
+    transform: translate(50%, 0);
+  }
+} 
